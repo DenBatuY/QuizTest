@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.GameFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_question"
@@ -31,10 +27,14 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
             android:background="@drawable/rounded_bg_for_answers"
+            android:gravity="center"
             android:padding="@dimen/half_margin"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_question" />
+            app:layout_constraintTop_toBottomOf="@id/tv_question"
+            tools:text="answer" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_answer_1"
@@ -43,10 +43,14 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
             android:background="@drawable/rounded_bg_for_answers"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:padding="@dimen/half_margin"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_answer_0" />
+            app:layout_constraintTop_toBottomOf="@id/tv_answer_0"
+            tools:text="answer" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_answer_2"
@@ -55,10 +59,14 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
             android:background="@drawable/rounded_bg_for_answers"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:padding="@dimen/half_margin"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_answer_1" />
+            app:layout_constraintTop_toBottomOf="@id/tv_answer_1"
+            tools:text="answer" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_answer_3"
@@ -67,10 +75,14 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
             android:background="@drawable/rounded_bg_for_answers"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:padding="@dimen/half_margin"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_answer_2" />
+            app:layout_constraintTop_toBottomOf="@id/tv_answer_2"
+            tools:text="answer" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_answer_4"
@@ -79,10 +91,24 @@
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
             android:background="@drawable/rounded_bg_for_answers"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:padding="@dimen/half_margin"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_answer_3" />
+            app:layout_constraintTop_toBottomOf="@id/tv_answer_3"
+            tools:text="answer" />
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            tools:listitem="@layout/answer_item"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/bt_next"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_question" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_next"
@@ -90,9 +116,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
+            android:background="@drawable/rounded_bg_for_answers"
+            android:text="@string/next_question"
+            android:layout_marginBottom="@dimen/double_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_answer_4" />
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

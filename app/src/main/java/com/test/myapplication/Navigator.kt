@@ -8,5 +8,5 @@ fun Fragment.navigator(): Navigator {
 
 interface Navigator {
     fun goToGameFragment()
-    fun goToResultFragment()
+    fun goToResultFragment(score: Int, allQuestionCount: Int)
 }

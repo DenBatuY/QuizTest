@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun goToGameFragment() =
-        supportFragmentManager.replaceNow(containerView, GameFragment(), addBackStack = true)
+        supportFragmentManager.replaceNow(containerView, GameFragment())
 
-    override fun goToResultFragment() {
-        TODO("Not yet implemented")
-    }
+    override fun goToResultFragment(score: Int, allQuestionCount: Int) = supportFragmentManager
+        .replaceNow(containerView, ResultFragment.newInstance(score, allQuestionCount))
 }

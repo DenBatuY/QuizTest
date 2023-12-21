@@ -1,10 +1,10 @@
-package com.test.myapplication.domain
+package com.test.myapplication.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Questions(
+data class QuestionsDto(
     @SerialName("answers")
     val answers: List<String>,
     @SerialName("correctAnswer")
