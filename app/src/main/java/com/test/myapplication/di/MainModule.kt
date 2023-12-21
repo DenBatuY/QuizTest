@@ -1,5 +1,6 @@
 package com.test.myapplication.di
 
+import com.google.gson.Gson
 import com.test.myapplication.data.ApiFactory
 import com.test.myapplication.data.RepositoryImpl
 import com.test.myapplication.data.Service
@@ -11,8 +12,8 @@ import org.koin.dsl.module
 
 val MainModule = module {
     single<Service> { ApiFactory.apiService }
-    single<Repository> { RepositoryImpl(get()) }
+    single<Repository> { RepositoryImpl(get(), get()) }
     viewModelOf(::MainViewModel)
-
+    single { Gson() }
     factory { LoadQuestionsUseCase(get()) }
 }

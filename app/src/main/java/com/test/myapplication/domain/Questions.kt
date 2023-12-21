@@ -1,7 +1,14 @@
 package com.test.myapplication.domain
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Questions(
-    val questionText: String,
+    @SerialName("answers")
     val answers: List<String>,
-    val correctAnswerIndex: Int
+    @SerialName("correctAnswer")
+    val correctAnswerIndex: Int,
+    @SerialName("question")
+    val questionText: String
 )
