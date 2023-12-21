@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.test.myapplication.databinding.FragmentWelcomBinding
+import com.test.myapplication.navigator
 
 class WelcomeFragment : Fragment() {
 
     private var _binding: FragmentWelcomBinding? = null
     private val binding: FragmentWelcomBinding
-        get() = checkNotNull(_binding) { "FragmentWelcomBinding = null " }
+        get() = checkNotNull(_binding) { "FragmentWelcomeBinding = null " }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,9 +28,9 @@ class WelcomeFragment : Fragment() {
         startQuiz()
     }
 
-    private fun startQuiz(){
+    private fun startQuiz() {
         binding.btStartQuiz.setOnClickListener {
-
+            navigator().goToGameFragment()
         }
     }
 

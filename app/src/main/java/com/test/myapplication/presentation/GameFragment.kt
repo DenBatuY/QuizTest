@@ -6,22 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.test.myapplication.R
+import com.test.myapplication.databinding.FragmentGameBinding
+import com.test.myapplication.databinding.FragmentWelcomBinding
 
 class GameFragment : Fragment() {
 
+    private var _binding: FragmentGameBinding? = null
+    private val binding: FragmentGameBinding
+        get() = checkNotNull(_binding) { "FragmentGameBinding = null " }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game, container, false)
+    ): View {
+        _binding = FragmentGameBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        fun newInstance(param1: String, param2: String) =
-            GameFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
