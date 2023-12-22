@@ -6,8 +6,8 @@ class Mapper {
     fun mapDtoToEntity(dto: QuestionsDto): QuestionsEntity {
         return QuestionsEntity(
             answers = dto.answers,
-            correctAnswerIndex = dto.correctAnswerIndex,
-            questionText = dto.questionText
+            correctAnswer = dto.correctAnswer,
+            question = dto.question
         )
     }
 }

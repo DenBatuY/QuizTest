@@ -1,11 +1,11 @@
 package com.test.myapplication.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.test.myapplication.R
 import com.test.myapplication.databinding.FragmentGameBinding
@@ -42,6 +42,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observe()
+        loadingState()
     }
 
     private fun observe() {
@@ -50,8 +51,14 @@ class GameFragment : Fragment() {
         }
     }
 
+    private fun loadingState(){
+        quizViewModel.loading.observe(viewLifecycleOwner){
+            binding.progressBar.isVisible = it
+        }
+    }
+
     private fun showText(quiz: QuizEntity) {
-        Log.d("myTest", "qqq $quiz")
+        if (quiz.questions.isEmpty()) return
         val question = quiz.questions[quiz.currentIndex]
         var index = ZERO_INDEX
         buttonsList.forEach {
@@ -62,11 +69,12 @@ class GameFragment : Fragment() {
                 if (question.userAnswer == null) {
                     setBackgroundResource(R.drawable.rounded_bg_for_answers)
                     it.isEnabled = true
-                }else {
-                    if (question.correctAnswerIndex == question.userAnswer && question.userAnswer == ownIndex) {
+                } else {
+                    if (question.correctAnswer == question.userAnswer && question.userAnswer == ownIndex) {
                         setBackgroundResource(R.drawable.rounded_bg_for_answers_true)
+                        quizViewModel.increaseScore()
                     }
-                    if (question.correctAnswerIndex != question.userAnswer && question.userAnswer == ownIndex) {
+                    if (question.correctAnswer != question.userAnswer && question.userAnswer == ownIndex) {
                         setBackgroundResource(R.drawable.rounded_bg_for_answers_false)
                     }
                     it.isEnabled = false
@@ -75,7 +83,7 @@ class GameFragment : Fragment() {
             index++
         }
         with(binding) {
-            tvQuestion.text = question.questionText
+            tvQuestion.text = question.question
             if (quiz.lastQuestion) btNext.text = getString(R.string.end)
             btNext.isEnabled = question.userAnswer != null
             nextQuestion(quiz)
@@ -85,7 +93,8 @@ class GameFragment : Fragment() {
     private fun nextQuestion(quiz: QuizEntity) {
         binding.btNext.setOnClickListener {
             if (!quiz.lastQuestion)
-                quizViewModel.nextQuestion() else navigator().goToResultFragment(3,4)
+                quizViewModel.nextQuestion() else
+                navigator().goToResultFragment(quizViewModel.score, quiz.countOfQuestions)
         }
     }
 
@@ -94,7 +103,7 @@ class GameFragment : Fragment() {
         _binding = null
     }
 
-    companion object{
+    companion object {
         private const val ZERO_INDEX = 0
     }
 }

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/score"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ResultFragment">
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/double_margin"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="@string/questions_count"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -25,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/double_margin"
         android:gravity="center"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="26sp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/double_margin"
         android:gravity="center"
-        android:text="@string/questions_count"
+        android:textColor="@color/black"
+        android:text="@string/score"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +56,24 @@
         android:layout_marginTop="@dimen/double_margin"
         android:gravity="center"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="26sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_right_answers_count_description"
         tools:text="5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_try_again"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin"
+        android:layout_marginTop="@dimen/double_margin"
+        android:background="@drawable/rounded_bg_for_answers"
+        android:text="@string/try_again"
+        android:layout_marginBottom="@dimen/double_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

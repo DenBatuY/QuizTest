@@ -13,7 +13,7 @@ import org.koin.dsl.module
 
 val MainModule = module {
     single<Service> { ApiFactory.apiService }
-    single<Repository> { RepositoryImpl(get(), get(), get()) }
+    single<Repository> { RepositoryImpl(get(), get()) }
     viewModelOf(::MainViewModel)
     single { Gson() }
     factory { LoadQuestionsUseCase(get()) }

@@ -8,7 +8,7 @@ data class QuestionsDto(
     @SerialName("answers")
     val answers: List<String>,
     @SerialName("correctAnswer")
-    val correctAnswerIndex: Int,
+    val correctAnswer: Int,
     @SerialName("question")
-    val questionText: String
+    val question: String
 )

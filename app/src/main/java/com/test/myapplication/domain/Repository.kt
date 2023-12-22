@@ -1,5 +1,5 @@
 package com.test.myapplication.domain
 
 interface Repository {
-    suspend fun loadQuestions(): List<QuestionsEntity>
+    suspend fun loadQuestions(): List<QuestionsEntity>?
 }
